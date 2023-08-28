@@ -1,0 +1,104 @@
+<div class="bg-white py-12">
+  <div
+    class="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-3"
+  >
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Cronograma de estudo
+      </h2>
+    </div>
+
+    <select data-te-select-init data-te-select-filter="true">
+      <option value="1">História</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+      <option value="6">Six</option>
+      <option value="7">Seven</option>
+      <option value="8">Eight</option>
+      <option value="9">Nine</option>
+      <option value="10">Ten</option>
+    </select>
+    <label data-te-select-label-ref>Diciplina</label>
+
+    <select
+      [formControl]="subject"
+      data-te-select-init
+      data-te-select-filter="true"
+    >
+      <option value="1">Fascismo</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+      <option value="6">Six</option>
+      <option value="7">Seven</option>
+      <option value="8">Eight</option>
+      <option value="9">Nine</option>
+      <option value="10">Ten</option>
+    </select>
+    <label data-te-select-label-ref>Tema</label>
+
+    <select
+      [formControl]="subject"
+      data-te-select-init
+      data-te-select-filter="true"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <label data-te-select-label-ref>Quantidade de dias</label>
+
+    <select
+    [formControl]="subject"
+    data-te-select-init
+    data-te-select-filter="true"
+  >
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <label data-te-select-label-ref>Horas por dia</label>
+
+    <button
+      type="button"
+      (click)="goToHistory()"
+      class="inline-block rounded bg-yellow-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+    >
+      surpreenda-me
+    </button>
+  </div>
+
+  <div
+  *ngIf="view"
+  class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+>
+  <div class="lg:pr-4">
+    <div
+      class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+      style="white-space: pre-line"
+    >
+      <p style="margin-top: -2rem; padding: 1rem;">
+        {{ history }}
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<section class="mt-32 text-center">
+  <div
+    *ngIf="!view"
+    class="text-center inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] text-warning opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+    role="status"
+  >
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Loading...</span
+    >
+  </div>
+</section>
