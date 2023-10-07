@@ -9,7 +9,7 @@ export class AllServicesService {
   constructor(private http: HttpClient) {}
 
   getResumo(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/resumo');
+    return this.http.get<any>('https://back-uducai-production.up.railway.app/resumo');
   }
 
   getLudico(): Observable<any> {
