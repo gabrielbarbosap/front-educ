@@ -21,32 +21,32 @@ export class AgnosticDetailThemeComponent {
   ngOnInit(): void {
     initTE({ Collapse, Ripple });
     this.mensagem.cancel();
-    // switch (this.topic) {
-    //   case 'resume':
-    //     this.resume();
-    //     break;
-    //   case 'topics':
-    //     this.topics();
-    //     break;
-    //   case 'cause':
-    //     this.causes();
-    //     break;
-    //   case 'conseq':
-    //     this.conseq();
-    //     break;
-    //   case 'curious':
-    //     this.curious();
-    //     break;
-    //   case 'relate':
-    //     this.report();
-    //     break;
-    //   case 'indications':
-    //     this.studySource();
-    //     break;
-    //   case 'questions':
-    //     this.questions();
-    //     break;
-    // }
+    switch (this.topic) {
+      case 'resume':
+        this.resume();
+        break;
+      case 'topics':
+        this.topics();
+        break;
+      case 'cause':
+        this.causes();
+        break;
+      case 'conseq':
+        this.conseq();
+        break;
+      case 'curious':
+        this.curious();
+        break;
+      case 'relate':
+        this.report();
+        break;
+      case 'indications':
+        this.studySource();
+        break;
+      case 'questions':
+        this.questions();
+        break;
+    }
   }
 
   resume() {
