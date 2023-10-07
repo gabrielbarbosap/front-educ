@@ -50,6 +50,7 @@ export class AgnosticDetailThemeComponent {
   }
 
   resume() {
+    console.log('tentando resumo')
     this.service.getResumo().subscribe((res) => {
       this.view = true;
 

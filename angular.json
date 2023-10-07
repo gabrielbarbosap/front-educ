@@ -99,10 +99,7 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "front-educ"
-          }
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
