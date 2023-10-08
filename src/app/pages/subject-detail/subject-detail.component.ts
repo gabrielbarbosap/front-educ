@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select, initTE } from 'tw-elements';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-subject-detail',
@@ -9,19 +9,21 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./subject-detail.component.scss'],
 })
 export class SubjectDetailComponent implements OnInit {
-  subject = new FormControl('');
-  theme = new FormControl('');
+  subject = new FormControl('', Validators.required);
+  theme = new FormControl('', Validators.required);
 
   configPage: any;
   themeSelect = localStorage.getItem('theme-select');
+
+  mensagem = window.speechSynthesis.cancel();
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     initTE({ Select });
 
-    if(this.themeSelect) {
-      this.configPage = JSON.parse(this.themeSelect)
+    if (this.themeSelect) {
+      this.configPage = JSON.parse(this.themeSelect);
     }
   }
 

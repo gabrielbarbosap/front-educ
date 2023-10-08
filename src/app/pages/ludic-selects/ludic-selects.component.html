@@ -8,55 +8,81 @@
       </h2>
     </div>
 
-    <select data-te-select-init data-te-select-filter="true">
-      <option value="1">História</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-      <option value="4">Four</option>
-      <option value="5">Five</option>
-      <option value="6">Six</option>
-      <option value="7">Seven</option>
-      <option value="8">Eight</option>
-      <option value="9">Nine</option>
-      <option value="10">Ten</option>
+    <select
+      [formControl]="subject"
+      data-te-select-init
+      data-te-select-filter="true"
+    >
+      <option value="" hidden selected></option>
+      <option value="historia">História</option>
+      <option value="biologia">Biologia</option>
     </select>
     <label data-te-select-label-ref>Diciplina</label>
 
     <select
-      [formControl]="subject"
+      [formControl]="theme"
       data-te-select-init
       data-te-select-filter="true"
     >
-      <option value="1">Fascismo</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-      <option value="4">Four</option>
-      <option value="5">Five</option>
-      <option value="6">Six</option>
-      <option value="7">Seven</option>
-      <option value="8">Eight</option>
-      <option value="9">Nine</option>
-      <option value="10">Ten</option>
+      <option value="" hidden selected></option>
+      <option value="" *ngIf="subject.value === ''">
+        Selecione primeiro a diciplina
+      </option>
+
+      <option *ngIf="subject.value === 'historia'" value="fascismo">
+        Fascismo
+      </option>
+      <option
+        *ngIf="subject.value === 'historia'"
+        value="primeira guerra mundial"
+      >
+        Primeira guerra mundial
+      </option>
+      <option *ngIf="subject.value === 'historia'" value="historia do brasil">
+        História do Brasil
+      </option>
+      <option
+        *ngIf="subject.value === 'biologia'"
+        value="Sistema Cardiovascular"
+      >
+        Sistema Cardiovascular
+      </option>
+      <option
+        *ngIf="subject.value === 'biologia'"
+        value="Ecologia dos sistemas"
+      >
+        Ecologia dos sistemas
+      </option>
+      <option *ngIf="subject.value === 'biologia'" value="evolucao">
+        Evolução
+      </option>
     </select>
     <label data-te-select-label-ref>Tema</label>
 
     <select
-      [formControl]="subject"
+      [formControl]="ludic"
       data-te-select-init
       data-te-select-filter="true"
     >
-      <option value="1">Filme de ficção cientifica</option>
-      <option value="2">Filme de harry potter</option>
-      <option value="3">Filme do homem aranha</option>
-      <option value="4">Uma história contada por minha avó</option>
-      <option value="5">Uma musica</option>
-      <option value="6">Uma partida de futebol</option>
+      <option value="" hidden selected></option>
+      <option value="Filme de ficção cientifica">
+        Filme de ficção cientifica
+      </option>
+      <option value="um Filme de harry potter">Filme de harry potter</option>
+      <option value="um Filme da marvel">Filme da marvel</option>
+      <option value="Uma história contada por minha avó">
+        Uma história contada por minha avó
+      </option>
+      <option value="Uma musica">Uma musica</option>
+      <option value="Uma partida de futebol">Uma partida de futebol</option>
+      <option value="um conto">Um conto</option>
     </select>
     <label data-te-select-label-ref>Como se fosse</label>
 
     <button
       type="button"
       (click)="goToHistory()"
+      [disabled]="!theme.valid && !subject.valid && !ludic.valid"
       class="inline-block rounded bg-yellow-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
     >
       surpreenda-me
@@ -64,23 +90,64 @@
   </div>
 
   <div
-  *ngIf="view"
-  class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
->
-  <div class="lg:pr-4">
+    *ngIf="view"
+    class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+  >
+    <div class="lg:pr-4">
+      <div
+        class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+        style="white-space: pre-line"
+      >
+        <p style="margin-top: -2rem; padding: 1rem">
+          {{ history }}
+        </p>
+      </div>
+    </div>
+
     <div
-      class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
-      style="white-space: pre-line"
-    >
-      <p style="margin-top: -2rem; padding: 1rem;">
-        {{ history }}
-      </p>
+        class="mb-3 inline-flex w-full items-center rounded-lg bg-primary-100 px-6 py-5 text-base text-primary-700"
+        role="alert"
+      >
+        <span class="mr-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-5 w-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+        Este texto foi gerado por uma inteligência artificial superinteligente, mas o conhecimento do professor em sala de aula é a fonte principal. 📚🎓
+      </div>
+  </div>
+
+  <div
+    *ngIf="view && history"
+    class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+  >
+    <div class="lg:pr-4">
+      <div
+        class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+        style="padding: 1.5rem"
+      >
+        <button
+          type="button"
+          (click)="lerTexto()"
+          class="mb-2 block w-full rounded bg-yellow-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-yellow-500 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-yellow-500 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-yellow-500 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+        >
+          áudio
+        </button>
+      </div>
     </div>
   </div>
 </div>
-</div>
 
-<section class="mt-32 text-center">
+<section class=" text-center">
   <div
     *ngIf="!view"
     class="text-center inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] text-warning opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"

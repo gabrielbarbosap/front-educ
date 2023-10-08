@@ -1,4 +1,4 @@
-<div class="bg-white py-12 ">
+<div class="bg-white py-12">
   <div
     class="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-2"
   >
@@ -7,10 +7,9 @@
         Chat
       </h2>
       <p class="mt-6 text-lg leading-8 text-gray-600">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
-        necessitatibus alias consequatur illo suscipit a quos accusantium minus
-        quaerat iste porro eos, quis ab laudantium velit. Commodi similique
-        tempora esse.
+        "Seja bem-vindo à nossa IA amigável! Estamos prontos para tornar sua
+        experiência incrível 24/7. Envie sua dúvida e descubra o que temos
+        reservado para você!" 😄🚀
       </p>
     </div>
     <ul role="list" class="w-full">
@@ -24,9 +23,17 @@
             class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
             aria-label="With textarea"
             [formControl]="chat"
-            (keydown)="resposta($event, chat)"
           ></textarea>
         </div>
+
+        <button
+          type="button"
+          (click)="resposta()"
+          [disabled]="!chat.valid"
+          class="inline-block rounded bg-yellow-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-full mt-2"
+        >
+          surpreenda-me
+        </button>
 
         <div
           *ngIf="text"
@@ -38,6 +45,29 @@
           >
             {{ text }}
           </p>
+
+          <div
+            class="mb-3 inline-flex w-full items-center rounded-lg bg-primary-100 px-6 py-5 text-base text-primary-700"
+            role="alert"
+          >
+            <span class="mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Este texto foi gerado por uma inteligência artificial
+            superinteligente, mas o conhecimento do professor em sala de aula é
+            a fonte principal. 📚🎓
+          </div>
         </div>
 
         <div *ngIf="loading" class="mt-3" style="text-align: center">

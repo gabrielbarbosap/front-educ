@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private router: Router) {}
 
   entrar() {

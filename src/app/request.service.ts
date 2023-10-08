@@ -6,65 +6,73 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AllServicesService {
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private http: HttpClient) {}
 
-  getResumo(): Observable<any> {
-    return this.http.get<any>('https://back-uducai-production.up.railway.app/resumo');
+  getResumo(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/resumo', themes);
   }
 
-  getLudico(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/ludico');
+  getLudico(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/ludico', themes);
   }
 
-  getCausa(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/causa');
+  getCausa(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/causa', themes);
   }
 
-  getConseq(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/consequencia');
+  getConseq(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/consequencia', themes);
   }
 
-  getCarac(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/caracteristica');
+  getCarac(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/caracteristica', themes);
   }
 
-  getCurious(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/curiosidade');
+  getCurious(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/curiosidade', themes);
   }
 
-  getRelato(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/relato');
+  getRelato(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/relato', themes);
   }
 
-  getFontesEstudo(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/fonte-estudos');
+  getFontesEstudo(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/fonte-estudos', themes);
   }
 
-  getCronogramaAluno(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/cronograma-aluno');
+  getCronogramaAluno(themes: any): Observable<any> {
+    return this.http.post<any>(
+      'https://back-uducai-production.up.railway.app/cronograma-aluno',
+      themes
+    );
   }
 
-  getCronogramaProfessor(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/cronograma-professor');
+  getCronogramaProfessor(themes: any): Observable<any> {
+    return this.http.post<any>(
+      'https://back-uducai-production.up.railway.app/cronograma-professor',
+      themes
+    );
   }
 
-  getTopicos(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/topicos');
+  getTopicos(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/topicos', themes);
   }
 
-  getExercicio(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/exercicio-aluno');
+  getExercicio(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/exercicio-aluno', themes);
   }
 
   getRespostas(body: any): Observable<any> {
-    return this.http.post<any>('http://localhost:5000/resposta', body);
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/resposta', body);
   }
 
   chat(body: any): Observable<any> {
-    return this.http.post<any>('http://localhost:5000/chat', body);
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/chat', body);
   }
 
-  getImage(): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/imagem');
+  getImage(themes: any): Observable<any> {
+    return this.http.post<any>('https://back-uducai-production.up.railway.app/imagem', themes);
   }
 }

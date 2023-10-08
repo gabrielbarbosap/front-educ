@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
   loading = false;
   chat = new FormControl('');
 
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private service: AllServicesService) {}
   ngOnInit(): void {
     initTE({ Ripple, Collapse });

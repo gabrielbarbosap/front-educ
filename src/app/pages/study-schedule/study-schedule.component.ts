@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select, initTE } from 'tw-elements';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { AllServicesService } from 'src/app/request.service';
 @Component({
   selector: 'app-study-schedule',
@@ -9,9 +9,15 @@ import { AllServicesService } from 'src/app/request.service';
   styleUrls: ['./study-schedule.component.scss'],
 })
 export class StudyScheduleComponent implements OnInit {
-  subject = new FormControl('');
+  subject = new FormControl('', Validators.required);
+  theme = new FormControl('', Validators.required);  
+  days = new FormControl('', Validators.required);  
+  hours = new FormControl('', Validators.required);  
+
   history = '';
   view = true;
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private service: AllServicesService) {}
 
   ngOnInit(): void {
@@ -20,7 +26,16 @@ export class StudyScheduleComponent implements OnInit {
 
   goToHistory() {
     this.view = false;
-    this.service.getCronogramaAluno().subscribe((res) => {
+    this.mensagem = window.speechSynthesis.cancel();
+
+    const body = {
+      subject: this.subject.value,
+      theme: this.theme.value,
+      hours: this.hours.value,
+      days: this.days.value
+
+    };
+    this.service.getCronogramaAluno(body).subscribe((res) => {
       this.history = res.text;
       this.view = true;
     });

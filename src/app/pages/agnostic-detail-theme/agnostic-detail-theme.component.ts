@@ -14,13 +14,16 @@ export class AgnosticDetailThemeComponent {
   viewCorrect = false;
   respostasQuestions: any;
   topic = localStorage.getItem('topic');
-  mensagem = window.speechSynthesis;
+  themeSession = localStorage.getItem('theme-select') as any;
+  themeSelect: any;
+  mensagem = window.speechSynthesis.cancel();
 
   constructor(private router: Router, private service: AllServicesService) {}
 
   ngOnInit(): void {
     initTE({ Collapse, Ripple });
-    this.mensagem.cancel();
+    this.themeSelect = JSON.parse(this.themeSession);
+
     switch (this.topic) {
       case 'resume':
         this.resume();
@@ -50,8 +53,8 @@ export class AgnosticDetailThemeComponent {
   }
 
   resume() {
-    console.log('tentando resumo')
-    this.service.getResumo().subscribe((res) => {
+    console.log(this.themeSelect);
+    this.service.getResumo(this.themeSelect).subscribe((res) => {
       this.view = true;
 
       this.resumo = res.text;
@@ -59,7 +62,7 @@ export class AgnosticDetailThemeComponent {
   }
 
   questions() {
-    this.service.getExercicio().subscribe((res) => {
+    this.service.getExercicio(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.viewCorrect = true;
       this.resumo = res.text;
@@ -79,42 +82,42 @@ export class AgnosticDetailThemeComponent {
   }
 
   topics() {
-    this.service.getTopicos().subscribe((res) => {
+    this.service.getTopicos(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });
   }
 
   causes() {
-    this.service.getCausa().subscribe((res) => {
+    this.service.getCausa(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });
   }
 
   curious() {
-    this.service.getCurious().subscribe((res) => {
+    this.service.getCurious(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });
   }
 
   report() {
-    this.service.getRelato().subscribe((res) => {
+    this.service.getRelato(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });
   }
 
   conseq() {
-    this.service.getConseq().subscribe((res) => {
+    this.service.getConseq(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });
   }
 
   studySource() {
-    this.service.getFontesEstudo().subscribe((res) => {
+    this.service.getFontesEstudo(this.themeSelect).subscribe((res) => {
       this.view = true;
       this.resumo = res.text;
     });

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./subjects.component.scss']
 })
 export class SubjectsComponent implements OnInit {
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private router: Router) {}
 
 ngOnInit(): void {

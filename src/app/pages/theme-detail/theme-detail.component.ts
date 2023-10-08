@@ -10,6 +10,8 @@ import { Collapse, Ripple, initTE } from 'tw-elements';
 export class ThemeDetailComponent implements OnInit {
   @Input() buildPage: any;
 
+  mensagem = window.speechSynthesis.cancel();
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
