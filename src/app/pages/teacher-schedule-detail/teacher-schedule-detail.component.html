@@ -1,0 +1,266 @@
+<div class="bg-white py-12">
+  <div
+    class="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-3"
+  >
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Cronograma e roteiro de aula
+      </h2>
+    </div>
+
+    <select
+      [formControl]="subject"
+      data-te-select-init
+      data-te-select-filter="true"
+    >
+      <option value="" hidden selected></option>
+      <option value="historia">História</option>
+      <option value="biologia">Biologia</option>
+    </select>
+    <label data-te-select-label-ref>Diciplina</label>
+
+    <select
+      [formControl]="theme"
+      data-te-select-init
+      data-te-select-filter="true"
+      multiple
+    >
+      <option value="" hidden selected></option>
+      <option value="" *ngIf="subject.value === ''">
+        Selecione primeiro a diciplina
+      </option>
+
+      <option *ngIf="subject.value === 'historia'" value="fascismo">
+        Fascismo
+      </option>
+      <option
+        *ngIf="subject.value === 'historia'"
+        value="primeira guerra mundial"
+      >
+        Primeira guerra mundial
+      </option>
+      <option *ngIf="subject.value === 'historia'" value="historia do brasil">
+        História do Brasil
+      </option>
+      <option
+        *ngIf="subject.value === 'biologia'"
+        value="Sistema Cardiovascular"
+      >
+        Sistema Cardiovascular
+      </option>
+      <option
+        *ngIf="subject.value === 'biologia'"
+        value="Ecologia dos sistemas"
+      >
+        Ecologia dos sistemas
+      </option>
+      <option *ngIf="subject.value === 'biologia'" value="evolucao">
+        Evolução
+      </option>
+    </select>
+    <label data-te-select-label-ref>Tema</label>
+
+    <select
+      [formControl]="hours"
+      data-te-select-init
+      data-te-select-filter="true"
+    >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <label data-te-select-label-ref>Horas de Aula</label>
+
+    <section>
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          name="category"
+          id="radioCategory1"
+          value="Ensino Médio"
+          [formControl]="category"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="radioCategory1"
+          >Ensino Médio</label
+        >
+      </div>
+
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          name="category"
+          id="radioCategory2"
+          value="Ensino Fundamental"
+          [formControl]="category"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="radioCategory2"
+          >Ensino Fundamental</label
+        >
+      </div>
+      <hr
+        class="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-30"
+      />
+    </section>
+
+    <section>
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          id="radioIdea1"
+          name="idea"
+          value="de resolução de atividades/questões desafiadoras"
+          [formControl]="idea"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="radioIdea1"
+          >Atividades</label
+        >
+      </div>
+
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          id="radioIdea3"
+          name="idea"
+          value="nenhum"
+          [formControl]="idea"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="radioIdea3"
+          >Sem atividades</label
+        >
+      </div>
+
+      <div
+        [ngClass]="{ hidden: idea.value === 'nenhum' }"
+        class="relative mb-3 mt-3"
+        data-te-input-wrapper-init
+      >
+        <input
+          type="number"
+          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+          id="number1"
+          [formControl]="minIdea"
+        />
+        <label
+          for="number1"
+          class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+          >Minutos de atividades
+        </label>
+      </div>
+
+      <hr
+        class="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-30"
+      />
+    </section>
+
+    <section>
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          id="materias1"
+          name="materias"
+          value="Irei dividir o tempo de aula com um vídeo de "
+          [formControl]="materias"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="materias1"
+          >Irei dividir o tempo de aula com um vídeo</label
+        >
+      </div>
+
+      <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+        <input
+          class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+          type="radio"
+          id="materias2"
+          name="materias"
+          value="com apresentação do conteudo de forma oral e com um quadro"
+          [formControl]="materias"
+        />
+        <label
+          class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"
+          for="materias2"
+          >Aula não terá apresentação de vídeo</label
+        >
+      </div>
+
+      <div
+        [ngClass]="{
+          hidden:
+            materias.value ===
+            'com apresentação do conteudo de forma oral e com um quadro'
+        }"
+        class="relative mb-3 mt-3"
+        data-te-input-wrapper-init
+      >
+        <input
+          type="number"
+          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+          id="number2"
+          [formControl]="minVideo"
+        />
+        <label
+          for="number2"
+          class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+          >Minutos de vídeo
+        </label>
+      </div>
+
+      <hr
+        class="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-30"
+      />
+    </section>
+
+    <button
+      type="button"
+      (click)="goToShedule()"
+      [disabled]="!theme.valid && !subject.valid"
+      class="mb-2 block w-full rounded bg-yellow-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-yellow-500 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-yellow-500 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-yellow-500 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+    >
+      Surpreenda-me
+    </button>
+  </div>
+
+  <div
+    *ngIf="view"
+    class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+  >
+    <div class="lg:pr-4">
+      <div
+        class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+        style="white-space: pre-line"
+      >
+        <p style="margin-top: -2rem; padding: 1rem">
+          {{ history }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="text-center">
+  <div
+    *ngIf="!view"
+    class="text-center inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] text-warning opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+    role="status"
+  >
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Loading...</span
+    >
+  </div>
+</section>

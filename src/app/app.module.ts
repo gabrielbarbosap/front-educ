@@ -15,6 +15,9 @@ import { LudicSelectsComponent } from './pages/ludic-selects/ludic-selects.compo
 import { StudyScheduleComponent } from './pages/study-schedule/study-schedule.component';
 import { TeacherScheduleComponent } from './pages/teacher-schedule/teacher-schedule.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CorrectTextComponent } from './pages/correct-text/correct-text.component';
+import { EnemComponent } from './pages/enem/enem.component';
+import { TeacherScheduleDetailComponent } from './pages/teacher-schedule-detail/teacher-schedule-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,10 @@ import { LoginComponent } from './pages/login/login.component';
     LudicSelectsComponent,
     StudyScheduleComponent,
     TeacherScheduleComponent,
-    LoginComponent
+    LoginComponent,
+    CorrectTextComponent,
+    EnemComponent,
+    TeacherScheduleDetailComponent
   ],
   imports: [
     BrowserModule,

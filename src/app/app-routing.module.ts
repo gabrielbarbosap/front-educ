@@ -10,6 +10,9 @@ import { StudyScheduleComponent } from './pages/study-schedule/study-schedule.co
 import { TeacherScheduleComponent } from './pages/teacher-schedule/teacher-schedule.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CorrectTextComponent } from './pages/correct-text/correct-text.component';
+import { EnemComponent } from './pages/enem/enem.component';
+import { TeacherScheduleDetailComponent } from './pages/teacher-schedule-detail/teacher-schedule-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +25,12 @@ const routes: Routes = [
   { path: 'ludic', component: LudicSelectsComponent },
   { path: 'shedule', component: StudyScheduleComponent },
   { path: 'teacher-shedule', component: TeacherScheduleComponent },
+  { path: 'teacher-shedule-detail', component: TeacherScheduleDetailComponent },
+
+  { path: 'enem-question', component: EnemComponent },
+
+  // { path: 'correct-text', component: CorrectTextComponent },
+
 ];
 
 @NgModule({
